@@ -1,4 +1,4 @@
-package com.wasusi.k_cloud
+package com.wasusi.k_cloud.ui.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
