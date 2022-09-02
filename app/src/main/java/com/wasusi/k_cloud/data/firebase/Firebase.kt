@@ -35,5 +35,4 @@ class Firebase {
     fun logout() = auth.signOut()
 
     fun currentUser() = auth.currentUser
-
 }
