@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">K-cloud</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="et_phone_hint">Enter your phone number</string>
+    <string name="et_email_hint">Enter your Email</string>
 </resources>

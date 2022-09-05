@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/input_background"
-            android:hint="Enter your Email"
+            android:hint="@string/et_email_hint"
             android:ems="10"
             android:inputType="textEmailAddress" />
 
@@ -54,7 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Enter your phone number"
+            android:hint="@string/et_phone_hint"
             android:layout_marginBottom="10dp"
             android:background="@drawable/input_background"
             android:inputType="phone" />
@@ -64,7 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/button_background"
-            android:text="Login"
+            android:text="@string/login"
             android:textAllCaps="false"
             android:backgroundTint="@color/cto_orange"/>
 
@@ -77,7 +77,7 @@
             android:id="@+id/linkRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Register"
+            android:text="@string/register"
             android:textStyle="bold"
             android:layout_gravity="center"
             android:textColor="#000"/>
