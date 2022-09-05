@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "869473833560",
+    "project_id": "k-cloud-d165e",
+    "storage_bucket": "k-cloud-d165e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:869473833560:android:1267917cad4d49104ff02d",
+        "android_client_info": {
+          "package_name": "com.wasusi.k_cloud"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "869473833560-b3l0374fnhh6584rvagoi9lpno4g8vaf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDa3QdQZS8ZzjpoBlwVAmT5uVOz7BgXyNM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "869473833560-b3l0374fnhh6584rvagoi9lpno4g8vaf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
