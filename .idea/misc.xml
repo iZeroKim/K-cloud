@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Kcloud/app/src/main/res/drawable/button_background.xml" value="0.163" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Kcloud/app/src/main/res/drawable/input_background.xml" value="0.163" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Kcloud/app/src/main/res/drawable/input_background_normal.xml" value="0.163" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Kcloud/app/src/main/res/drawable/inputbackground.xml" value="0.1" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Kcloud/app/src/main/res/layout/activity_login.xml" value="0.22" />
       </map>
     </option>
