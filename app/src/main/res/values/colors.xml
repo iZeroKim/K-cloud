@@ -11,4 +11,5 @@
     <color name="gray">#e7e8f3</color>
     <color name="icon_gray">#a4aaba</color>
     <color name="cto_orange">#f75730</color>
+    <color name="disabled_text">#66676A</color>
 </resources>
