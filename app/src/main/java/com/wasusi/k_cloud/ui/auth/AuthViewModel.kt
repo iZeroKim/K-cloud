@@ -85,6 +85,7 @@ class AuthViewModel(
         disposables.add(disposable)
     }
 
+
     // Dispose disposables
     override fun onCleared(){
         super.onCleared()
