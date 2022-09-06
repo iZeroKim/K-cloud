@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="30sp"
-                android:text="Welcome back"
+                android:text="Welcome to K-cloud"
                 android:textColor="@color/gray"/>
         </LinearLayout>
         <LinearLayout
@@ -72,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_background"
                 android:text="@string/register"
-                android:onClick="@{(v)->viewmodel.register(v)}"
+                android:onClick="@{()->viewmodel.register()}"
                 android:textAllCaps="false"
                 android:backgroundTint="@color/cto_orange"/>
 
@@ -87,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/login"
                 android:textStyle="bold"
-                android:onClick="@{()->viewmodel.gotToLogin(v)}"
+                android:onClick="@{(v)->viewmodel.gotToLogin(v)}"
                 android:layout_gravity="center"
                 android:textColor="#000"/>
             <ProgressBar

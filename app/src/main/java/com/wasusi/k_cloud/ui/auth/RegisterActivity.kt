@@ -1,6 +1,7 @@
 package com.wasusi.k_cloud.ui.auth
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -44,6 +45,7 @@ class RegisterActivity : AppCompatActivity(), AuthListener, KodeinAware {
 
     override fun onFailure(message: String) {
         binding.progressbar.visibility = View.GONE
+        Log.i("Register", message)
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }

@@ -1,6 +1,7 @@
 package com.wasusi.k_cloud.ui.auth
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -31,6 +32,7 @@ class LoginActivity : AppCompatActivity(), KodeinAware, AuthListener {
 
     override fun onStart() {
         super.onStart()
+        Log.i("position", "Here")
         authViewModel.user?.let {
             startHomeActivity()
         }
@@ -42,6 +44,7 @@ class LoginActivity : AppCompatActivity(), KodeinAware, AuthListener {
 
     override fun onSuccess() {
         binding.progressbar.visibility = View.GONE
+        Log.i("position", "Now here")
         startHomeActivity()
     }
 
