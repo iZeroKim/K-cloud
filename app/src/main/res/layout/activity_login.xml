@@ -52,18 +52,20 @@
                 android:background="@drawable/input_background"
                 android:hint="@string/et_email_hint"
                 android:ems="10"
+                android:text="@={viewmodel.email}"
                 android:inputType="textEmailAddress" />
 
             <EditText
                 android:layout_marginTop="20dp"
-                android:id="@+id/etPhone"
+                android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="@string/et_phone_hint"
+                android:text="@={viewmodel.password}"
+                android:hint="@string/et_password_hint"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/input_background"
-                android:inputType="phone" />
+                android:inputType="textPassword" />
 
             <Button
                 android:id="@+id/btnLogin"
@@ -71,6 +73,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_background"
                 android:text="@string/login"
+                android:onClick="@{() -> viewmodel.login()}"
                 android:textAllCaps="false"
                 android:backgroundTint="@color/cto_orange"/>
 
@@ -84,6 +87,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/register"
+                android:onClick="@{(v) -> viewmodel.gotToRegister(v)}"
                 android:textStyle="bold"
                 android:layout_gravity="center"
                 android:textColor="#000"/>
