@@ -24,5 +24,11 @@ class MainActivity : AppCompatActivity(), KodeinAware {
         homeViewModel = ViewModelProvider(this, homeViewModelFactory).get(HomeViewModel::class.java)
 
         binding.viewmodel = homeViewModel
+        setSupportActionBar(binding.toolbar)
+
+        supportActionBar?.setDisplayShowHomeEnabled(true);
+        supportActionBar?.setIcon(R.drawable.nav_menu)
+        supportActionBar?.setDisplayUseLogoEnabled(true);
+
     }
 }
