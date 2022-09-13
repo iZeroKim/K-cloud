@@ -1,9 +1,13 @@
 package com.wasusi.k_cloud.data.firebase
 
+import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.wasusi.k_cloud.data.models.Folder
+import com.wasusi.k_cloud.data.models.Folder.Companion.toFolder
 import io.reactivex.Completable
+import kotlinx.coroutines.tasks.await
 
 class Firebase {
     private val auth: FirebaseAuth by lazy {
@@ -41,18 +45,17 @@ class Firebase {
 
     fun currentUser() = auth.currentUser
 
-    fun getFolders() = Completable.create{emitter ->
-        db.collection("folders")
-            .get()
-            .addOnCompleteListener {
-                if(!emitter.isDisposed){
-                    if(it.isSuccessful){
-                        emitter.onComplete()
-                    } else{
-                        emitter.onError(it.exception!!)
-                    }
+    suspend fun getFolders(userId: String): List<Folder>{
+        return try {
+            db.collection("users")
+                .document(userId)
+                .collection("folders").get().await()
+                .documents.mapNotNull {
+                    it.toFolder()
                 }
-            }
-
+        } catch (e: Exception){
+            Log.e("Folders", "Error fetching folders" )
+            emptyList<Folder>()
+        }
     }
 }
