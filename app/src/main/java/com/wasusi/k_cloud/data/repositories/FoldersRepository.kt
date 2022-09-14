@@ -7,4 +7,5 @@ class FoldersRepository(
     private val firebase: Firebase
 ) {
     suspend fun fetchFolders(userId: String): List<Folder> = firebase.getFolders(userId)
+    suspend fun insertFolder(folder: Folder): Boolean = firebase.insertFolder(folder)
 }

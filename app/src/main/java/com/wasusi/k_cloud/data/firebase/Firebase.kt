@@ -45,6 +45,16 @@ class Firebase {
 
     fun currentUser() = auth.currentUser
 
+    suspend fun insertFolder(folder: Folder): Boolean{
+        return try {
+            db.collection("users").document().set(folder).await()
+            return true
+        } catch (e:Exception){
+            Log.e("Folders", "Error inserting folder",e )
+            return false
+        }
+    }
+
     suspend fun getFolders(userId: String): List<Folder>{
         return try {
             db.collection("users")
@@ -54,8 +64,10 @@ class Firebase {
                     it.toFolder()
                 }
         } catch (e: Exception){
-            Log.e("Folders", "Error fetching folders" )
+            Log.e("Folders", "Error fetching folders",e )
             emptyList<Folder>()
         }
     }
+
+
 }
