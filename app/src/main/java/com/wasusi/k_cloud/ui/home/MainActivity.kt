@@ -3,6 +3,7 @@ package com.wasusi.k_cloud.ui.home
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.wasusi.k_cloud.R
 import com.wasusi.k_cloud.databinding.ActivityMainBinding
@@ -29,6 +30,10 @@ class MainActivity : AppCompatActivity(), KodeinAware {
         supportActionBar?.setDisplayShowHomeEnabled(true);
         supportActionBar?.setIcon(R.drawable.nav_menu)
         supportActionBar?.setDisplayUseLogoEnabled(true);
+
+        homeViewModel.folders.observe(this, Observer {
+
+        })
 
     }
 }
