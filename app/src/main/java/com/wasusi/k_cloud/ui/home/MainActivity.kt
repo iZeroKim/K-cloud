@@ -1,12 +1,14 @@
 package com.wasusi.k_cloud.ui.home
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.wasusi.k_cloud.R
 import com.wasusi.k_cloud.databinding.ActivityMainBinding
+import com.wasusi.k_cloud.util.adapters.FoldersAdapter
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
@@ -24,7 +26,10 @@ class MainActivity : AppCompatActivity(), KodeinAware {
 
         homeViewModel = ViewModelProvider(this, homeViewModelFactory).get(HomeViewModel::class.java)
 
+
         binding.viewmodel = homeViewModel
+
+        val recyclerView = binding.rvfolders
         setSupportActionBar(binding.toolbar)
 
         supportActionBar?.setDisplayShowHomeEnabled(true)
@@ -32,7 +37,12 @@ class MainActivity : AppCompatActivity(), KodeinAware {
         supportActionBar?.setDisplayUseLogoEnabled(true)
 
         homeViewModel.folders.observe(this, Observer {
+            if(!it.isEmpty()){
+                recyclerView.adapter = FoldersAdapter(it)
+                recyclerView.visibility = View.VISIBLE
+                binding.emptyList.visibility = View.GONE
 
+            }
         })
 
     }
