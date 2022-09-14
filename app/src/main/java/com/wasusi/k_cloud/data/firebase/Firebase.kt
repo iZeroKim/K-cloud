@@ -46,11 +46,14 @@ class Firebase {
     fun currentUser() = auth.currentUser
 
     suspend fun insertFolder(folder: Folder): Boolean{
+        Log.i("here", "sjhknff")
         return try {
-            db.collection("users").document().set(folder).await()
+            db.collection("users").document(currentUser()!!.uid).collection("folders").document().set(folder).await()
+            Log.i("here", "good")
             return true
         } catch (e:Exception){
             Log.e("Folders", "Error inserting folder",e )
+            Log.i("here", "bad")
             return false
         }
     }

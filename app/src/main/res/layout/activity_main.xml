@@ -284,6 +284,7 @@
                             android:layout_width="30dp"
                             android:layout_height="match_parent"
                             app:cardCornerRadius="6dp"
+                            android:onClick="@{()->viewmodel.insertFolder()}"
                             app:cardBackgroundColor="@color/gray">
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -293,6 +294,7 @@
                                     android:layout_height="25dp"
                                     android:layout_marginStart="2dp"
                                     android:layout_marginTop="1dp"
+
                                     android:src="@drawable/icons8_squared_menu_96"/>
 
                             </LinearLayout>

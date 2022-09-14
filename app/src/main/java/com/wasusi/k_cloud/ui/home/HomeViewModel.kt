@@ -21,7 +21,7 @@ class HomeViewModel(
     private val _folders = MutableLiveData<List<Folder>>()
     val folders: LiveData<List<Folder>> = _folders
 
-
+ val folder = Folder("", "files", "25/04/2024")
     val user by lazy{
         repository.currentUser()
     }
@@ -32,10 +32,12 @@ class HomeViewModel(
         }
     }
 
-    fun insertFolder(folder: Folder){
+    fun insertFolder(){
+        Log.i("here", "isk")
         viewModelScope.launch {
             foldersRepository.insertFolder(folder)
         }
+
     }
 
 
