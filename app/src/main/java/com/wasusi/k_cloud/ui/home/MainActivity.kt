@@ -27,9 +27,9 @@ class MainActivity : AppCompatActivity(), KodeinAware {
         binding.viewmodel = homeViewModel
         setSupportActionBar(binding.toolbar)
 
-        supportActionBar?.setDisplayShowHomeEnabled(true);
+        supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.setIcon(R.drawable.nav_menu)
-        supportActionBar?.setDisplayUseLogoEnabled(true);
+        supportActionBar?.setDisplayUseLogoEnabled(true)
 
         homeViewModel.folders.observe(this, Observer {
 
