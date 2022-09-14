@@ -1,5 +1,6 @@
 package com.wasusi.k_cloud.ui.home
 
+import android.util.Log
 import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -25,6 +26,7 @@ class HomeViewModel(
     }
     init {
         viewModelScope.launch {
+            Log.i("Folders", foldersRepository.fetchFolders(user!!.uid).toString())
             _folders.value = foldersRepository.fetchFolders(user!!.uid)
         }
     }

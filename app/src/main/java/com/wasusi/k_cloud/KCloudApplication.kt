@@ -2,6 +2,7 @@ package com.wasusi.k_cloud
 
 import android.app.Application
 import com.wasusi.k_cloud.data.firebase.Firebase
+import com.wasusi.k_cloud.data.repositories.FoldersRepository
 import com.wasusi.k_cloud.data.repositories.UserRepository
 import com.wasusi.k_cloud.ui.auth.AuthViewModelFactory
 import com.wasusi.k_cloud.ui.home.HomeViewModelFactory
@@ -18,8 +19,9 @@ class KCloudApplication : Application(), KodeinAware{
         import(androidXModule(this@KCloudApplication))
         bind() from singleton { Firebase() }
         bind() from singleton { UserRepository(instance()) }
+        bind() from singleton { FoldersRepository(instance()) }
         bind() from provider { AuthViewModelFactory(instance()) }
-        bind() from provider { HomeViewModelFactory(instance()) }
+        bind() from provider { HomeViewModelFactory(instance(), instance()) }
     }
 
 }
