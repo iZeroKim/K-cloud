@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/HP/AndroidStudioProjects/Kcloud/app/src/main/res/drawable/button_background.xml" value="0.163" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Kcloud/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.1165" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Kcloud/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.1365" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Kcloud/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.1165" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Kcloud/app/src/main/res/drawable/input_background.xml" value="0.163" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Kcloud/app/src/main/res/drawable/input_background_normal.xml" value="0.163" />
@@ -12,7 +13,7 @@
         <entry key="..\:/Users/HP/AndroidStudioProjects/Kcloud/app/src/main/res/drawable/nav_menu.xml" value="0.1165" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Kcloud/app/src/main/res/drawable/rounded_dialog.xml" value="0.1355" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Kcloud/app/src/main/res/layout/activity_login.xml" value="0.22" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/Kcloud/app/src/main/res/layout/activity_main.xml" value="0.19" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Kcloud/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Kcloud/app/src/main/res/layout/activity_register.xml" value="0.2006340579710145" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Kcloud/app/src/main/res/layout/folder.xml" value="0.2384428223844282" />
       </map>
