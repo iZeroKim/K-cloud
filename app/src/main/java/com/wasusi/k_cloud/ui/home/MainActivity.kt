@@ -51,6 +51,10 @@ class MainActivity : AppCompatActivity(), KodeinAware {
             }
         })
 
+        homeViewModel.folder_count.observe(this, Observer {
+            binding.folderCount.text = it.toString()
+        })
+
         /**
          * Show BottomSheetDialog
          * */

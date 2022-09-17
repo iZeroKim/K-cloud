@@ -19,7 +19,9 @@ class HomeViewModel(
 ): ViewModel(){
     private val disposables = CompositeDisposable()
     private val _folders = MutableLiveData<List<Folder>>()
+    private val _folder_count = MutableLiveData<Int>()
     val folders: LiveData<List<Folder>> = _folders
+    var folder_count = _folder_count
 
     val user by lazy{
         repository.currentUser()
@@ -27,6 +29,7 @@ class HomeViewModel(
     init {
         viewModelScope.launch {
             Log.i("Folders", foldersRepository.fetchFolders(user!!.uid).toString())
+            _folder_count.value = foldersRepository.fetchFolders(user!!.uid).size
             _folders.value = foldersRepository.fetchFolders(user!!.uid)
         }
     }
