@@ -35,7 +35,6 @@ class HomeViewModel(
     }
 
     fun insertFolder(name: String, currentDate: String) {
-        Log.i("here", "isk")
         viewModelScope.launch {
             foldersRepository.insertFolder(Folder(currentDate + name, name, currentDate))
         }
