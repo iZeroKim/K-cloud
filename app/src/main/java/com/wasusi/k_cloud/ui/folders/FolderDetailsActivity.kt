@@ -9,5 +9,12 @@ class FolderDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setTheme(R.style.Theme_Kcloud)
         setContentView(R.layout.activity_folder_details)
+        // my_child_toolbar is defined in the layout file
+        setSupportActionBar(findViewById(R.id.toolbar2))
+
+        // Get a support ActionBar corresponding to this toolbar and enable the Up button
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
+
+
 }
