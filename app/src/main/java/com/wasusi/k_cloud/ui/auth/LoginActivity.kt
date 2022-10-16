@@ -23,6 +23,7 @@ class LoginActivity : AppCompatActivity(), KodeinAware, AuthListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(R.style.Theme_Kcloud)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
         authViewModel = ViewModelProvider(this, authViewModelFactory).get(AuthViewModel::class.java)
         binding.viewmodel = authViewModel
