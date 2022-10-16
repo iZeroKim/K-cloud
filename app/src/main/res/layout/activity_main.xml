@@ -309,7 +309,7 @@
                             android:layout_weight="1"
                             android:layout_gravity="center"
 
-                            android:text="My Files"
+                            android:text="My Folders"
                             android:textColor="@color/navy_blue"
                             android:textSize="20dp"
                             android:textStyle="bold" />
