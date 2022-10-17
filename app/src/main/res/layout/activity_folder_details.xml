@@ -218,14 +218,7 @@
 
                     </LinearLayout>
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rvfiles"
-                        android:layout_width="match_parent"
-                        android:layout_height="300dp"
-                        android:orientation="vertical"
-                        android:visibility="gone"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                         />
+
 
                     <TextView
                         android:id="@+id/emptyList"
@@ -235,8 +228,17 @@
                         android:gravity="center"
                         android:text=" Oops! no files found :("
                         android:textColor="@color/navy_blue"
+                        android:visibility="gone"
                         android:textSize="24dp"
                         android:textStyle="bold" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvFiles"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:orientation="vertical"
+                        tools:listitem="@layout/single_day_layout"/>
 
                 </LinearLayout>
 
