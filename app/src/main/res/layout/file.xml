@@ -3,21 +3,23 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#f7f6fd">
+    android:background="@color/page_background_color">
 
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:cardCornerRadius="10dp"
-        app:cardElevation="0dp"
-        android:layout_margin="20dp"
-
+        app:cardElevation="1dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="2dp"
         app:cardBackgroundColor="@color/white">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             android:orientation="vertical">
 
             <LinearLayout
