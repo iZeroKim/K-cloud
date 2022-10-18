@@ -47,7 +47,7 @@ class Firebase {
 
     suspend fun insertFolder(folder: Folder): Boolean{
         return try {
-            db.collection("users").document(currentUser()!!.uid).collection("folders").document().set(folder).await()
+            db.collection("users").document(currentUser()!!.uid).collection("folders").document(folder.folderId).set(folder).await()
             return true
         } catch (e:Exception){
             Log.e("Folders", "Error inserting folder",e )
@@ -63,6 +63,7 @@ class Firebase {
                 .documents.mapNotNull {
                     it.toFolder()
                 }
+
         } catch (e: Exception){
             Log.e("Folders", "Error fetching folders",e )
             emptyList<Folder>()
