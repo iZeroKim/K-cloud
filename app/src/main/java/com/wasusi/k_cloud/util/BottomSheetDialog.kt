@@ -4,9 +4,9 @@ import android.widget.ImageView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.wasusi.k_cloud.R
 import com.wasusi.k_cloud.ui.folders.FolderDetailsActivity
-import com.wasusi.k_cloud.ui.home.HomeViewModel
 
-fun showFileAddDialog(homeViewModel: HomeViewModel, activity: FolderDetailsActivity) {
+//homeViewModel: HomeViewModel,
+fun showFileAddDialog( activity: FolderDetailsActivity) {
     val dialog = BottomSheetDialog(activity)
 
     val btmSheetView = activity.layoutInflater.inflate(R.layout.add_file_layout, null, false)

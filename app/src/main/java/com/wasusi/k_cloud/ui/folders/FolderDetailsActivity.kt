@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.wasusi.k_cloud.R
 import com.wasusi.k_cloud.databinding.ActivityFolderDetailsBinding
+import com.wasusi.k_cloud.util.showFileAddDialog
 
 class FolderDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +23,9 @@ class FolderDetailsActivity : AppCompatActivity() {
 
 
 
-
+        binding.addFile.setOnClickListener {
+            showFileAddDialog(this)
+        }
 
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

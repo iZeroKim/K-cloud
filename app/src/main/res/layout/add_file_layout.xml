@@ -11,7 +11,8 @@
         android:id="@+id/mainLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp">
+        android:layout_margin="20dp"
+        android:layout_marginBottom="30dp">
 
         <ImageView
             android:id="@+id/btnCancel"
@@ -49,7 +50,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="30dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
@@ -57,6 +61,7 @@
                     android:layout_weight="1"
                     android:layout_margin="10dp"
                     app:cardBackgroundColor="@color/document_bg"
+                    android:layout_marginBottom="30dp"
                     app:cardCornerRadius="10dp">
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -64,14 +69,17 @@
                         android:orientation="vertical">
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="80dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
 
-                        android:src="@drawable/ic_baseline_document_snippet_24"/>
+                        android:src="@drawable/add_file"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Document"
+                            android:layout_marginBottom="20dp"
                             android:textColor="@color/black"
                             android:layout_gravity="center"/>
                     </LinearLayout>
@@ -90,13 +98,16 @@
                         android:orientation="vertical">
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="80dp"
-
-                        android:src="@drawable/ic_baseline_image_24"/>
+                        android:layout_height="60dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:src="@drawable/picture"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Image"
+
+                            android:layout_marginBottom="20dp"
                             android:textColor="@color/black"
                             android:layout_gravity="center"/>
                     </LinearLayout>
@@ -116,13 +127,15 @@
                         android:orientation="vertical">
                         <ImageView
                             android:layout_width="match_parent"
-                            android:layout_height="80dp"
-
-                            android:src="@drawable/ic_baseline_library_music_24"/>
+                            android:layout_height="60dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:src="@drawable/sound_wave"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Music"
+                            android:layout_marginBottom="20dp"
                             android:textColor="@color/black"
                             android:layout_gravity="center"/>
                     </LinearLayout>
