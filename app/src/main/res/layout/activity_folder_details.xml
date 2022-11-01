@@ -33,13 +33,13 @@
                 <!-- ToolBar widget -->
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar2"
-                    android:layout_marginTop="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
+                    android:layout_marginTop="20dp"
                     android:background="@color/navy_blue"
+                    android:elevation="0dp"
                     android:minHeight="?attr/actionBarSize"
                     android:theme="?attr/actionBarTheme"
-                    android:elevation="0dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -48,6 +48,8 @@
                     app:navigationIcon="@drawable/ic_baseline_arrow_back_ios_24"/>
 
                 <!-- Right most ImageView -->
+
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="40dp"
                     android:layout_height="40dp"

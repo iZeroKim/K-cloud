@@ -9,6 +9,8 @@ import androidx.databinding.DataBindingUtil
 import com.wasusi.k_cloud.R
 import com.wasusi.k_cloud.data.models.Folder
 import com.wasusi.k_cloud.databinding.ActivityFolderDetailsBinding
+import com.wasusi.k_cloud.ui.home.MainActivity
+import com.wasusi.k_cloud.util.backTo
 import com.wasusi.k_cloud.util.showFileAddDialog
 
 class FolderDetailsActivity : AppCompatActivity() {
@@ -28,6 +30,9 @@ class FolderDetailsActivity : AppCompatActivity() {
         binding.addFile.setOnClickListener {
             showFileAddDialog(this)
         }
+        binding.toolbar2.setNavigationOnClickListener {
+            this.backTo(MainActivity())
+        }
 
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -38,5 +43,6 @@ class FolderDetailsActivity : AppCompatActivity() {
             Log.i("uri", data?.data.toString())
         }
     }
+
 
 }

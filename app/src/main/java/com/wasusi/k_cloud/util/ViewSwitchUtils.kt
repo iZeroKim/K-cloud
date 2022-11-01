@@ -1,5 +1,6 @@
 package com.wasusi.k_cloud.util
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -28,5 +29,10 @@ fun Context.startFolderDetailsActivity(bundle: Bundle) =
     }
 fun Context.startFileDetailsActivity(bundle: Bundle) =
     Intent(this, FileDetailsActivity::class.java).also {
+        startActivity(it)
+    }
+
+fun Context.backTo(toActivity: Activity) =
+    Intent(this, toActivity::class.java).also {
         startActivity(it)
     }
