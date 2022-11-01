@@ -46,6 +46,7 @@ class AuthViewModel(
         }
 
         //Start authentication
+
         authListener?.onStarted()
 
         //Perform register on repository

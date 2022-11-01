@@ -1,10 +1,12 @@
 package com.wasusi.k_cloud.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -13,6 +15,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.wasusi.k_cloud.R
 import com.wasusi.k_cloud.databinding.ActivityMainBinding
 import com.wasusi.k_cloud.util.adapters.FoldersAdapter
+import com.wasusi.k_cloud.util.network.connectionStatusConnected
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
@@ -37,15 +40,19 @@ class MainActivity : AppCompatActivity(), KodeinAware {
         binding.viewmodel = homeViewModel
 
         val recyclerView = binding.rvfolders
+        var adapter: FoldersAdapter? = null
         setSupportActionBar(binding.toolbar)
 
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.setIcon(R.drawable.nav_menu)
         supportActionBar?.setDisplayUseLogoEnabled(true)
 
+
         homeViewModel.folders.observe(this, Observer {
             if(!it.isEmpty()){
-                recyclerView.adapter = FoldersAdapter(it)
+
+                adapter = FoldersAdapter(it)
+                recyclerView.adapter = adapter!!
                 recyclerView.visibility = View.VISIBLE
                 binding.emptyList.visibility = View.GONE
 
@@ -60,13 +67,13 @@ class MainActivity : AppCompatActivity(), KodeinAware {
          * Show BottomSheetDialog
          * */
         binding.cardAddFolder.setOnClickListener {
-            showBottomSheetDialog(homeViewModel)
-
+            showBottomSheetDialog(homeViewModel, adapter!!)
+            adapter!!.notifyDataSetChanged()
         }
 
     }
 
-    private fun showBottomSheetDialog(homeViewModel: HomeViewModel) {
+    private fun showBottomSheetDialog(homeViewModel: HomeViewModel, adapter: FoldersAdapter) {
         val dialog = BottomSheetDialog(this)
         val btmSheetView = layoutInflater.inflate(R.layout.add_folder_layout, null, false)
         dialog.setContentView(btmSheetView)
@@ -88,8 +95,16 @@ class MainActivity : AppCompatActivity(), KodeinAware {
             val date: Date = calendar!!.getTime()
             val currentDate = "${SimpleDateFormat("EE", Locale.ENGLISH).format(date.getTime())}, ${date}"
 
-            homeViewModel.insertFolder(name , currentDate)
-            dialog.dismiss()
+            if(!this.connectionStatusConnected()){
+                Toast.makeText(this, "No internet Connection", Toast.LENGTH_SHORT).show()
+                Log.i("add", "No internet ")
+            } else{
+                homeViewModel.insertFolder(name , currentDate)
+                adapter.notifyDataSetChanged()
+                Log.i("add", "Yes internet")
+                dialog.dismiss()
+            }
+
         }
 
         dialog.show()
