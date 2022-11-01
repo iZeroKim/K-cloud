@@ -7,6 +7,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.wasusi.k_cloud.R
+import com.wasusi.k_cloud.data.models.Folder
 import com.wasusi.k_cloud.databinding.ActivityFolderDetailsBinding
 import com.wasusi.k_cloud.util.showFileAddDialog
 
@@ -22,7 +23,8 @@ class FolderDetailsActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
 
-
+        val folder = intent.extras?.get("current_folder") as Folder
+        binding.folderName.text = folder.name
         binding.addFile.setOnClickListener {
             showFileAddDialog(this)
         }

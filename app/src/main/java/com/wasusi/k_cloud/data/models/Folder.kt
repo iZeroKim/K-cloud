@@ -2,13 +2,14 @@ package com.wasusi.k_cloud.data.models
 
 import android.util.Log
 import com.google.firebase.firestore.DocumentSnapshot
+import java.io.Serializable
 
 
 data class Folder(
     val folderId:String,
     val name:String,
     val created_at:String
-){
+): Serializable{
     companion object{
         fun DocumentSnapshot.toFolder(): Folder?{
             try{

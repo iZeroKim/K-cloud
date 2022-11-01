@@ -30,7 +30,7 @@ class FoldersAdapter(val folders: List<Folder>):
         holder.itemView.setOnClickListener {
             it.context.startActivity(
                 Intent(it.context, FolderDetailsActivity::class.java).apply {
-                    putExtra("Folder_name", folders[position].name)
+                    putExtra("current_folder", folders[position] as java.io.Serializable)
                 }
             )
         }
