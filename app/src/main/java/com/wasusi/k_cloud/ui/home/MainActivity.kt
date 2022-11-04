@@ -39,9 +39,13 @@ class MainActivity : AppCompatActivity(), KodeinAware {
         setTheme(R.style.Theme_Kcloud)
         val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        homeViewModel = ViewModelProvider(this, homeViewModelFactory).get(HomeViewModel::class.java)
         authViewModel = ViewModelProvider(this, authViewModelFactory).get(AuthViewModel::class.java)
+        if(authViewModel.user == null) {
+            startLoginActivity()
+        }
 
+
+        homeViewModel = ViewModelProvider(this, homeViewModelFactory).get(HomeViewModel::class.java)
         binding.viewmodel = homeViewModel
 
         val recyclerView = binding.rvfolders
@@ -78,12 +82,6 @@ class MainActivity : AppCompatActivity(), KodeinAware {
 
     }
 
-    override fun onStart() {
-        super.onStart()
-        authViewModel.user?.let {
-            startLoginActivity()
-        }
-    }
 
 
 
