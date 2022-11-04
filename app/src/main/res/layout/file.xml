@@ -65,7 +65,7 @@
                 android:layout_marginBottom="10dp"
                 android:text="Chris brown - all"
                 android:textColor="@color/navy_blue"
-                android:textSize="18sp"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -74,6 +74,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="Created in"
+                android:textSize="13sp"
                 android:textColor="@color/icon_gray"
                 android:textStyle="bold" />
 
@@ -83,6 +84,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="25th Sep 2022"
+                android:textSize="13sp"
                 android:textColor="@color/icon_gray"
                 android:textStyle="bold" />
 

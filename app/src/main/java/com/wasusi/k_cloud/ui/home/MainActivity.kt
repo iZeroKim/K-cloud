@@ -14,6 +14,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.wasusi.k_cloud.R
 import com.wasusi.k_cloud.databinding.ActivityMainBinding
+import com.wasusi.k_cloud.ui.auth.AuthViewModel
+import com.wasusi.k_cloud.ui.auth.AuthViewModelFactory
 import com.wasusi.k_cloud.util.adapters.FoldersAdapter
 import com.wasusi.k_cloud.util.network.connectionStatusConnected
 import com.wasusi.k_cloud.util.startLoginActivity
@@ -27,8 +29,10 @@ import java.util.*
 class MainActivity : AppCompatActivity(), KodeinAware {
     override val kodein: Kodein by kodein()
     private val homeViewModelFactory: HomeViewModelFactory by instance()
+    private val authViewModelFactory:AuthViewModelFactory by instance()
 
     private lateinit var homeViewModel: HomeViewModel
+    private lateinit var authViewModel: AuthViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +40,7 @@ class MainActivity : AppCompatActivity(), KodeinAware {
         val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         homeViewModel = ViewModelProvider(this, homeViewModelFactory).get(HomeViewModel::class.java)
-
+        authViewModel = ViewModelProvider(this, authViewModelFactory).get(AuthViewModel::class.java)
 
         binding.viewmodel = homeViewModel
 
@@ -76,7 +80,7 @@ class MainActivity : AppCompatActivity(), KodeinAware {
 
     override fun onStart() {
         super.onStart()
-        homeViewModel.user?.let {
+        authViewModel.user?.let {
             startLoginActivity()
         }
     }
