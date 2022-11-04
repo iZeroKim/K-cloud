@@ -16,6 +16,7 @@ import com.wasusi.k_cloud.R
 import com.wasusi.k_cloud.databinding.ActivityMainBinding
 import com.wasusi.k_cloud.util.adapters.FoldersAdapter
 import com.wasusi.k_cloud.util.network.connectionStatusConnected
+import com.wasusi.k_cloud.util.startLoginActivity
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
@@ -72,6 +73,15 @@ class MainActivity : AppCompatActivity(), KodeinAware {
         }
 
     }
+
+    override fun onStart() {
+        super.onStart()
+        homeViewModel.user?.let {
+            startLoginActivity()
+        }
+    }
+
+
 
     private fun showBottomSheetDialog(homeViewModel: HomeViewModel, adapter: FoldersAdapter) {
         val dialog = BottomSheetDialog(this)

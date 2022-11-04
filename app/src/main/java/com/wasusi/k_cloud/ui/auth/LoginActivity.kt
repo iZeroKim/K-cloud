@@ -31,13 +31,7 @@ class LoginActivity : AppCompatActivity(), KodeinAware, AuthListener {
         authViewModel.authListener = this
     }
 
-    override fun onStart() {
-        super.onStart()
-        Log.i("position", "Here")
-        authViewModel.user?.let {
-            startHomeActivity()
-        }
-    }
+
 
     override fun onStarted() {
         binding.progressbar.visibility = View.VISIBLE
