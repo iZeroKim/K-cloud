@@ -10,6 +10,7 @@ import com.wasusi.k_cloud.R
 import com.wasusi.k_cloud.data.models.Folder
 import com.wasusi.k_cloud.databinding.ActivityFolderDetailsBinding
 import com.wasusi.k_cloud.ui.home.MainActivity
+import com.wasusi.k_cloud.util.adapters.MonthsAdapter
 import com.wasusi.k_cloud.util.backTo
 import com.wasusi.k_cloud.util.showFileAddDialog
 
@@ -34,6 +35,20 @@ class FolderDetailsActivity : AppCompatActivity() {
         binding.toolbar2.setNavigationOnClickListener {
             this.backTo(MainActivity())
         }
+
+        val exampleMonth = ArrayList<String>()
+
+        exampleMonth.add("May 2022")
+        exampleMonth.add("Jun 2022")
+        exampleMonth.add("Oct 2022")
+        exampleMonth.add("Dec 2022")
+
+        val rvFiles = binding.rvFiles
+        val adapter = MonthsAdapter(exampleMonth)
+        rvFiles.adapter = adapter
+
+
+
 
     }
 
