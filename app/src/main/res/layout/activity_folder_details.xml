@@ -238,7 +238,7 @@
                         android:layout_height="match_parent"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         android:orientation="vertical"
-                        tools:listitem="@layout/single_day_layout"/>
+                        tools:listitem="@layout/single_month_layout"/>
 
                 </LinearLayout>
 
