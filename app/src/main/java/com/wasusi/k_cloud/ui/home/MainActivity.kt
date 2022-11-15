@@ -29,7 +29,7 @@ import java.util.*
 class MainActivity : AppCompatActivity(), KodeinAware {
     override val kodein: Kodein by kodein()
     private val homeViewModelFactory: HomeViewModelFactory by instance()
-    private val authViewModelFactory:AuthViewModelFactory by instance()
+    private val authViewModelFactory: AuthViewModelFactory by instance()
 
     private lateinit var homeViewModel: HomeViewModel
     private lateinit var authViewModel: AuthViewModel
@@ -37,10 +37,11 @@ class MainActivity : AppCompatActivity(), KodeinAware {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTheme(R.style.Theme_Kcloud)
-        val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        val binding: ActivityMainBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         authViewModel = ViewModelProvider(this, authViewModelFactory).get(AuthViewModel::class.java)
-        if(authViewModel.user == null) {
+        if (authViewModel.user == null) {
             startLoginActivity()
         }
 
@@ -58,7 +59,7 @@ class MainActivity : AppCompatActivity(), KodeinAware {
 
 
         homeViewModel.folders.observe(this, Observer {
-            if(!it.isEmpty()){
+            if (!it.isEmpty()) {
 
                 adapter = FoldersAdapter(it)
                 recyclerView.adapter = adapter!!
@@ -83,8 +84,6 @@ class MainActivity : AppCompatActivity(), KodeinAware {
     }
 
 
-
-
     private fun showBottomSheetDialog(homeViewModel: HomeViewModel, adapter: FoldersAdapter) {
         val dialog = BottomSheetDialog(this)
         val btmSheetView = layoutInflater.inflate(R.layout.add_folder_layout, null, false)
@@ -104,14 +103,15 @@ class MainActivity : AppCompatActivity(), KodeinAware {
              * Save folder
              * */
             var calendar: Calendar? = Calendar.getInstance()
-            val date: Date = calendar!!.getTime()
-            val currentDate = "${SimpleDateFormat("EE", Locale.ENGLISH).format(date.getTime())}, ${date}"
+            val date: Date = calendar!!.time
+            val currentDate =
+                "${SimpleDateFormat("EE", Locale.ENGLISH).format(date.time)}, ${date}"
 
-            if(!this.connectionStatusConnected()){
+            if (!this.connectionStatusConnected()) {
                 Toast.makeText(this, "No internet Connection", Toast.LENGTH_SHORT).show()
                 Log.i("add", "No internet ")
-            } else{
-                homeViewModel.insertFolder(name , currentDate)
+            } else {
+                homeViewModel.insertFolder(name, currentDate)
                 adapter.notifyDataSetChanged()
                 Log.i("add", "Yes internet")
                 dialog.dismiss()

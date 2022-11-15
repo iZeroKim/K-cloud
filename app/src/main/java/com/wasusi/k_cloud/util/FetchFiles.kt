@@ -5,7 +5,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.core.app.ActivityCompat.startActivityForResult
 
-fun Context.fetchFile(type: String){
+fun Context.fetchFile(type: String) {
     val REQUEST_CODE = 100
 
     val intent = Intent(Intent.ACTION_PICK)

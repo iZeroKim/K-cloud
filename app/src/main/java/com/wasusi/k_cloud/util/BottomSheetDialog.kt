@@ -6,7 +6,7 @@ import com.wasusi.k_cloud.R
 import com.wasusi.k_cloud.ui.folders.FolderDetailsActivity
 
 //homeViewModel: HomeViewModel,
-fun showFileAddDialog( activity: FolderDetailsActivity) {
+fun showFileAddDialog(activity: FolderDetailsActivity) {
     val dialog = BottomSheetDialog(activity)
 
     val btmSheetView = activity.layoutInflater.inflate(R.layout.add_file_layout, null, false)

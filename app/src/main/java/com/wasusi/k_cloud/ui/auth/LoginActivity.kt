@@ -32,7 +32,6 @@ class LoginActivity : AppCompatActivity(), KodeinAware, AuthListener {
     }
 
 
-
     override fun onStarted() {
         binding.progressbar.visibility = View.VISIBLE
     }

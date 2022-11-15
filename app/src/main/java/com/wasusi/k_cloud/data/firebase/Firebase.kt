@@ -13,28 +13,28 @@ class Firebase {
     private val auth: FirebaseAuth by lazy {
         FirebaseAuth.getInstance()
     }
-    private val db by lazy{
+    private val db by lazy {
         Firebase.firestore
     }
 
-    fun login(email: String, password: String) = Completable.create{emitter ->
+    fun login(email: String, password: String) = Completable.create { emitter ->
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
-            if(!emitter.isDisposed){
-                if(it.isSuccessful){
+            if (!emitter.isDisposed) {
+                if (it.isSuccessful) {
                     emitter.onComplete()
-                } else{
+                } else {
                     emitter.onError(it.exception!!)
                 }
             }
         }
     }
 
-    fun register(email: String, password: String) = Completable.create{emitter ->
+    fun register(email: String, password: String) = Completable.create { emitter ->
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
-            if(!emitter.isDisposed){
-                if(it.isSuccessful){
+            if (!emitter.isDisposed) {
+                if (it.isSuccessful) {
                     emitter.onComplete()
-                } else{
+                } else {
                     emitter.onError(it.exception!!)
                 }
             }
@@ -45,17 +45,18 @@ class Firebase {
 
     fun currentUser() = auth.currentUser
 
-    suspend fun insertFolder(folder: Folder): Boolean{
+    suspend fun insertFolder(folder: Folder): Boolean {
         return try {
-            db.collection("users").document(currentUser()!!.uid).collection("folders").document(folder.folderId).set(folder).await()
+            db.collection("users").document(currentUser()!!.uid).collection("folders")
+                .document(folder.folderId).set(folder).await()
             return true
-        } catch (e:Exception){
-            Log.e("Folders", "Error inserting folder",e )
+        } catch (e: Exception) {
+            Log.e("Folders", "Error inserting folder", e)
             return false
         }
     }
 
-    suspend fun getFolders(userId: String): List<Folder>{
+    suspend fun getFolders(userId: String): List<Folder> {
         return try {
             db.collection("users")
                 .document(userId)
@@ -64,8 +65,8 @@ class Firebase {
                     it.toFolder()
                 }
 
-        } catch (e: Exception){
-            Log.e("Folders", "Error fetching folders",e )
+        } catch (e: Exception) {
+            Log.e("Folders", "Error fetching folders", e)
             emptyList<Folder>()
         }
     }

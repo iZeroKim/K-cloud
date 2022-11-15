@@ -16,16 +16,17 @@ import kotlinx.coroutines.launch
 class HomeViewModel(
     private val repository: UserRepository,
     private val foldersRepository: FoldersRepository
-): ViewModel(){
+) : ViewModel() {
     private val disposables = CompositeDisposable()
     private val _folders = MutableLiveData<List<Folder>>()
     private val _folder_count = MutableLiveData<Int>()
     val folders: LiveData<List<Folder>> = _folders
     var folder_count = _folder_count
 
-    val user by lazy{
+    val user by lazy {
         repository.currentUser()
     }
+
     init {
         viewModelScope.launch {
             Log.i("Folders", foldersRepository.fetchFolders(user!!.uid).toString())
@@ -42,8 +43,7 @@ class HomeViewModel(
     }
 
 
-
-    fun logout(view: View){
+    fun logout(view: View) {
         repository.logout()
         view.context.startLoginActivity()
 

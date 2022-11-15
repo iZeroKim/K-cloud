@@ -19,28 +19,28 @@ class AuthViewModel(
 
     private val disposables = CompositeDisposable()
 
-    val user by lazy{
+    val user by lazy {
         repository.currentUser()
     }
 
     //Navigate to Register Activity
-    fun gotToRegister(view: View){
-        Intent(view.context, RegisterActivity::class.java).also{
+    fun gotToRegister(view: View) {
+        Intent(view.context, RegisterActivity::class.java).also {
             view.context.startActivity(it)
         }
     }
 
     //Navigate to Login Activity
-    fun gotToLogin(view: View){
-        Intent(view.context, LoginActivity::class.java).also{
+    fun gotToLogin(view: View) {
+        Intent(view.context, LoginActivity::class.java).also {
             view.context.startActivity(it)
         }
     }
 
     //Register
-    fun register(){
+    fun register() {
         //Validate email
-        if(email.isNullOrEmpty() || password.isNullOrEmpty()){
+        if (email.isNullOrEmpty() || password.isNullOrEmpty()) {
             authListener?.onFailure("Invalid email or password")
             return
         }
@@ -55,17 +55,17 @@ class AuthViewModel(
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
-                {authListener?.onSuccess()},
-                {authListener?.onFailure(it.message!!)}
+                { authListener?.onSuccess() },
+                { authListener?.onFailure(it.message!!) }
             )
 
         disposables.add(disposable)
     }
 
     //Login
-    fun login(){
+    fun login() {
         //Validate email
-        if(email.isNullOrEmpty() || password.isNullOrEmpty()){
+        if (email.isNullOrEmpty() || password.isNullOrEmpty()) {
             authListener?.onFailure("Invalid email or password")
             return
         }
@@ -79,8 +79,8 @@ class AuthViewModel(
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
-                {authListener?.onSuccess()},
-                {authListener?.onFailure(it.message!!)}
+                { authListener?.onSuccess() },
+                { authListener?.onFailure(it.message!!) }
             )
 
         disposables.add(disposable)
@@ -88,7 +88,7 @@ class AuthViewModel(
 
 
     // Dispose disposables
-    override fun onCleared(){
+    override fun onCleared() {
         super.onCleared()
         disposables.dispose()
     }

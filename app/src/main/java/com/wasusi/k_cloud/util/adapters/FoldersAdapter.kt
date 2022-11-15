@@ -10,12 +10,12 @@ import com.wasusi.k_cloud.R
 import com.wasusi.k_cloud.data.models.Folder
 import com.wasusi.k_cloud.ui.folders.FolderDetailsActivity
 
-class FoldersAdapter(val folders: List<Folder>):
-    RecyclerView.Adapter<FoldersAdapter.ViewHolder>(){
+class FoldersAdapter(val folders: List<Folder>) :
+    RecyclerView.Adapter<FoldersAdapter.ViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.folder, parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.folder, parent, false)
         return ViewHolder(view)
     }
 
@@ -40,15 +40,7 @@ class FoldersAdapter(val folders: List<Folder>):
         return folders.size
     }
 
-    override fun getItemId(position: Int): Long {
-        return super.getItemId(position)
-    }
-
-    override fun getItemViewType(position: Int): Int {
-        return super.getItemViewType(position)
-    }
-
-    class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val name = itemView.findViewById<TextView>(R.id.title)
         val created_at = itemView.findViewById<TextView>(R.id.created)
 

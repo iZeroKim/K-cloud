@@ -6,7 +6,7 @@ import com.wasusi.k_cloud.data.repositories.UserRepository
 
 class AuthViewModelFactory(
     private val repository: UserRepository
-): ViewModelProvider.NewInstanceFactory() {
+) : ViewModelProvider.NewInstanceFactory() {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return AuthViewModel(repository) as T
     }

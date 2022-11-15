@@ -7,10 +7,12 @@ import android.os.Build
 
 
 fun Context.connectionStatusConnected(): Boolean {
-    var connectivityManager = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    var connectivityManager =
+        this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-        val capabilities = connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
+        val capabilities =
+            connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
         if (capabilities != null) {
             when {
                 capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> {

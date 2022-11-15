@@ -17,7 +17,8 @@ class FolderDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTheme(R.style.Theme_Kcloud)
-        val binding: ActivityFolderDetailsBinding = DataBindingUtil.setContentView(this, R.layout.activity_folder_details)
+        val binding: ActivityFolderDetailsBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_folder_details)
 
         setSupportActionBar(binding.toolbar2)
 
@@ -35,10 +36,11 @@ class FolderDetailsActivity : AppCompatActivity() {
         }
 
     }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         var REQUEST_CODE = 100
-        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE){
+        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE) {
             // handle chosen image
             Log.i("uri", data?.data.toString())
         }
