@@ -23,6 +23,7 @@ class FoldersAdapter(val folders: List<Folder>) :
         holder.name.text = folders[position].name
         holder.created_at.text = folders[position].created_at
 
+
         /**
          * Start folders detail activity onclick of folder
          * Pass folder name as an intent bundle

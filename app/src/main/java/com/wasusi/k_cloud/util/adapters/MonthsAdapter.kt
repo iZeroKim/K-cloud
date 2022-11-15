@@ -23,10 +23,10 @@ class MonthsAdapter(val months: List<String>) :
         holder.month.text =months[position]
 
         val filesList = ArrayList<File>()
-        filesList.add(File("1", "Allan walker", "djsf", "25th May 2022"))
-        filesList.add(File("2", "CV", "djsf", "25th May 2022"))
-        filesList.add(File("3", "Video1", "djsf", "25th May 2022"))
-        filesList.add(File("4", "CV2", "djsf", "25th May 2022"))
+        filesList.add(File("1", "Allan walker", "djsf", "mus","25th May 2022"))
+        filesList.add(File("2", "CV", "djsf", "doc", "25th May 2022"))
+        filesList.add(File("3", "Video1", "djsf", "img","25th May 2022"))
+        filesList.add(File("4", "CV2", "djsf", "doc","25th May 2022"))
         holder.rvFiles.adapter = FilesAdapter(filesList)
 
         /**

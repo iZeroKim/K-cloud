@@ -4,6 +4,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.wasusi.k_cloud.R
@@ -23,6 +24,14 @@ class FilesAdapter(val files: List<File>) :
         holder.name.text = files[position].name
         holder.created_at.text = files[position].created_at
 
+        when(files[position].fileType){
+            "doc" -> holder.image_view.setImageDrawable(holder.itemView.context.getDrawable(R.drawable.ic_baseline_document_snippet_24))
+            "mus" -> holder.image_view.setImageDrawable(holder.itemView.context.getDrawable(R.drawable.ic_baseline_audio_file_24))
+            "img" -> holder.image_view.setImageDrawable(holder.itemView.context.getDrawable(R.drawable.ic_baseline_image_24))
+
+
+
+        }
         /**
          * Start folders detail activity onclick of folder
          * Pass folder name as an intent bundle
@@ -43,7 +52,7 @@ class FilesAdapter(val files: List<File>) :
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val name = itemView.findViewById<TextView>(R.id.title)
         val created_at = itemView.findViewById<TextView>(R.id.created)
-
+        val image_view = itemView.findViewById<ImageView>(R.id.ivFileType)
     }
 
 
